@@ -4,9 +4,11 @@ import { render } from '@testing-library/react'
 import Login from './login'
 
 describe('Login Page', () => {
-  test('Should not render spinned and error on start', () => {
+  test('Should start with initial state', () => {
     const { getByTestId } = render(<Login />)
     const errorWrap = getByTestId('error-wrap')
     expect(errorWrap.childElementCount).toBe(0)
+    const submitButtom = getByTestId('submit') as HTMLButtonElement
+    expect(submitButtom.disabled).toBe(true)
   })
 })
