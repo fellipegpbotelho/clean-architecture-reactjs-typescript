@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Authentication } from '@/domain/usecases'
 import { Footer, FormStatus, Input, LoginHeader } from '@/presentation/components'
@@ -58,7 +59,7 @@ const Login: React.FC<Props> = ({ authentication, validation }: Props) => {
           <Input type="email" name="email" placeholder="Digite seu e-mail" />
           <Input type="password" name="password" placeholder="Digite sua senha" />
           <button disabled={!!state.emailError || !!state.passwordError} type="submit" className={styles.submit} data-testid="submit">Entrar</button>
-          <span className={styles.link}>Criar conta</span>
+          <Link to="signup" data-testid="signup" className={styles.link}>Criar conta</Link>
           <FormStatus />
         </form>
       </Context.Provider>
